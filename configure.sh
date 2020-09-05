@@ -19,16 +19,20 @@ cat << EOF > /usr/local/etc/v2ray/config.json
             "port": $PORT,
             "protocol": "vless",
             "settings": {
-                "clients": [
+                "vnext": [
                     {
-                        "id": "$UUID",
-                        "level": 0
+                      "id": "$UUID", 
+                      "encryption": "none",
+                      "level": 0
                     }
                 ],
-                "disableInsecureEncryption": true
             },
             "streamSettings": {
-                "network": "ws"
+                "network": "ws",
+                "security": "tls",
+                 "wsSettings": {
+                    "path": "/" 
+                }  
             }
         }
     ],
